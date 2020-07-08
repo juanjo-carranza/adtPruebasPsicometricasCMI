@@ -1,0 +1,330 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="test" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="262,437" sap2010:WorkflowViewState.IdRef="test_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="test" sap:VirtualizedContainerService.HintSize="222,357" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="ActiveSession" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="canvas" />
+      <Variable x:TypeArguments="x:Boolean" Name="LogoutSuccessful" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="336,522" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ImageFound DisplayName="Image Exists 'Sesion activa'" Found="[ActiveSession]" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="ImageFound_4">
+            <ui:ImageFound.Image>
+              <ui:ImageTarget Image="{x:Null}" Accuracy="0.7" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGcAAAAXCAYAAAAWY1E4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIUSURBVGhD7ZUxTgNBDEW5F0fgClwhF6Cgh4YK0SJBmYqGgjIXoKNGuQQF0qIX6Us/lj3JiiKzMMVTZm2Px/af3Zx9f22nQZ8McTpmiNMxQ5yOGeJ0zBCnY4Y4HTPE6ZghTsf8OXE2L3fT7eo89S2NUpz7q4tdk8A6izkV1LN+WKU+6kWgzLc0UnEeby536Pn1+XqHx5ySShxqrERbIqk4NN+TGP+V8s2pvtvZNx0h/U2LtD6RLZ/qEG6Pb4jHwefH2168apS/dfneN097uTy25cuoegD6ZZ4+A/8kl/85Co4DmytOy0duHzJrxapo+RxifB/1+JBYY5NAGpAa14D51R5HQ4v2bJ/njXCu905d3hNrz6fZqu5SHCCIYFDzSuBxLQE0qGhXo5mNc2OhjosTGxbs1dA8PvNHyBfjAVu085z1rtl5/bJJDM7RXDN/UxzhA54rDmg/aCDKk6GGPMabiOJkZ3vjmTj4K3EAv86WjTyyOdn5umgZlTjg/qPEcUF0qPurAUW0l98sT4VulIbpw+ZsmvR4qOLFIXEE+5SfdcxToZp10TJmi0Oy2CzNafhxUBryMeLEglnH4iq8aB+2cnoe1tj0/BtxyKXeiPf6D8EZLTFniwNqTsTBu19NVuJg91xxIO4D5aEpt3sTxHjTuiCOfFk8VOJI7CqXBHKyPIJzPJZn980WZ9AHQ5yOGeJ0y3b6AaZmzeJhMsmvAAAAAElFTkSuQmCC" />
+            </ui:ImageFound.Image>
+            <ui:ImageFound.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;html url='https://www.amitaisystem.com/Amitai/Views/Common/Login.aspx?ReturnUrl=%2fAmitai%2fDefault.aspx%3fuid%3d23532%26cid%3d4438&amp;amp;uid=23532&amp;amp;cid=4438' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+            </ui:ImageFound.Target>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ImageFound>
+          <ui:ImageFound DisplayName="Image Exists 'Cuenta bloqueada'" Found="[ActiveSession]" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="ImageFound_2">
+            <ui:ImageFound.Image>
+              <ui:ImageTarget Image="{x:Null}" Accuracy="0.7" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKcAAAAcCAYAAAAEG69aAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANySURBVHhe7Zo9bhRBEIV9L47AFbiCL0BADgkRIkWC0BEJAaEvQEaMfAkCJOMveNbjbXXP7GrtbaEKPu10V3X99dOOJe/Vn993902zIi3OZllanM2ytDibZWlxNsvS4myWpcXZLMuBOL99eXP/7vrFI2lvmufiUZwfXr/8R5TJ7df3B4eb5im5+vXzeynGipuP12WQpnkKrioRzuC1XwVqmnNzIM58fVeve75t3eeSUC81Vbb/iU9vX03fXD9uPy93N6eA3qTBA3HmN2PaKx9B4MrGHrbcPwd7xcnF7ulhVVqcD/gARn+PMij5OKuKk9xZM2sN4TmgRgRU2fbQ4nzARaSLn/k47F9CnLPYT5n7GJhbi3Mb7mooTm8wX4WOBxR7xcmg2eNT8XLwngs/tzlb4hzVJPR2cOHoot0vZ+EiqPpRTsVyNHzw/Zn4iI19NLNKnNQg3/SH/PIhRt5TnsHu9Wd/Oesqh9uJ52c9finOLSjaE4iREJRUaw1YRUggOstAcigjiOGxE89TsUec1OI5NHCtsx+d95i51p6eVceo1q2ZKafEyb7HB9aaq/wzXt7TTJyjPmXn089nTcT3fPj6+ZPEqYEkJKps7G01zZp9Pbv/DBqZ+VKvmq3YI860a09xq34ybxUjGc0PtmammiXOzA9+D3knkLOscmJXXGyzmpI9NXr8k/7mVPCEokbi9IKrptMHu/LNLhVbDtnBVtUktsQpe4WGWPXjQwb8s49qvqNat2ammv3iR/l4rkSE3We51Rd21e143MqHGqu5g8c/+ptzdtFVw5BN5hpGZzVQDf1YiOsDryC+D0kXPbInVT9b4lQO74szx4jTZ5bxePb8QGzNwoUt8PdZEX/WV2V3vD6oasy5evyz/vtSyX0oPLPnRVCw+6kGPycUM/cFQ8bul5xgz4tgrXwMxHvD33Pim+cdbDkbHzIQz9c8e93qcyZOj5Ez03nFox7WOg8eX/66F61dnJqt1oqpnNlDknPTefmnPXs8+w8/1KSTxVMEhaoY8EvJWjTAihzgiIzp+bJmrf281yrctiVO1Qna12UBMcDrcmTzPqoefNZZc8b2mlQvn+6T+YjpffEsu3C77yuf1+h2znn8i/xkjgLyMpvLgyhSnJfkIj82bnGuSYvzgRbnmrQ4m2YnLc5mWVqczaLc3f8FmxAuRdaC5yoAAAAASUVORK5CYII=" />
+            </ui:ImageFound.Image>
+            <ui:ImageFound.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;html url='https://www.amitaisystem.com/Amitai/Views/Common/Login.aspx?ReturnUrl=%2fAmitai%2fDefault.aspx%3fuid%3d23532%26cid%3d4438&amp;amp;uid=23532&amp;amp;cid=4438' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+            </ui:ImageFound.Target>
+          </ui:ImageFound>
+          <ui:ImageFound DisplayName="Image Exists 'Invalid password'" Found="[ActiveSession]" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="ImageFound_3">
+            <ui:ImageFound.Image>
+              <ui:ImageTarget Image="{x:Null}" Accuracy="0.7" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKwAAAAYCAYAAABnaha7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAO2SURBVHhe7Zg7jhRBEES5F0fgClxhL4CBDw4WwkUCEwsHA3MvgIeN9hIYSIseq5iNCbKqu/n00CKNp5mu/GfFzgw8+Pb15rZpjkILtjkULdjmUEwF++Ht09vnVw9PVD5NsyelYF8+eXQm1OT6/YufYppmD84E++Xzx1KgFe9eXZ0lapo9OBNsJcwZ/GTw+Kb525wEyydmCjK/+qufCnwqu88loV96qmx7s7UXfbv9S/u8FOzh0/Wb0nYSLE5JfoKu8RGIu7Jxhi3P/wRLItlT0Fnr9bPHP3AfpwV7D3uYChYjTon/TtVCk9EltGBbsL8Ke5gKVstNXFhrfJxLCXaW+5KCXaIFew97mAoWEeFUoQVWv3GFJxRrBcunDme8Kl/+D4TXmn1KbRUsdYTye22eidEzqF/3qWKrWt67BCrkPxIstvwmzN7yHj1X2iSIzKnZeO/5Oc/d5h37HVbx2LXr3LPH8DoVbDa9hZGAtgiWPBpOF6lYBvPhZpBjq2C9lmqrF+yVyCQEz5WxVS3Phc3nom/PnWBzu/LrYpnB901u7SL7dvBRzw7x3h+946t6mRO7zydNKTe98ew5gZwex3ufK5n+o2sNviSHRiobZ1ok0GAOwbOG4L37z2A5M98lEYH3raXrUjhPf8djZ7UyL6QAEmwpLK+XeH3lznggR+4fsn/V8vlm8wB25SaOHG5XXynO6kycBEtiHB0voAGS0YJptlomZ37pPtTIx3sbDQLYcilOXgJ5vQ5k37oovfdLr3Yi31mttIEub7RPbF4bql7xc2RTfsiZPc7PeWanQP/kUKzXxp6x4DPjm3ejuJxZdf1MnAQLOG7Bl5VUYgDOsI2eYRSrix5d6hIzEQmefS7ec5aXUi3bxT2rVV2wBDWaDVsK1uuR2/eY9R3icufAmYuKZ/LzqtrYs9eR8Lwn8nhuGM3M2SrBKsEaqoEdDeFL1hK9GYZyP/XgcaK6aIelYM8FCNXXMzNIRIJniQDUD74+s3KplnpT7FIt99Wz50vSnvVThNqrnp2cUXDmPVKDvBIpZ9qD+wE+fqZ96K7JnYKF7Jtnj0vOBCsUNIJBqrhETTt5IQypBcjHl5m9jAYB4vCpbLAkIuA5L1O9ZW3i1Rc+HrtUK3fDXvQqHwebcgrvR/HCd5Fx6iNjQPkEZy405codgecB7w9/zyOyB2Lwy12LUrBCQ4vK53dhef4X1tSwf8RS2f4npoLdgxbsOlqwd7RgD0IL9o6LC7ZpttCCbQ5FC7Y5EDe33wHpF/eDCibNBQAAAABJRU5ErkJggg==" />
+            </ui:ImageFound.Image>
+            <ui:ImageFound.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;html url='https://www.amitaisystem.com/Amitai/Views/Common/Login.aspx?ReturnUrl=%2fAmitai%2fDefault.aspx%3fuid%3d23532%26cid%3d4438&amp;amp;uid=23532&amp;amp;cid=4438' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+            </ui:ImageFound.Target>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ImageFound>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="336,422" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'CANVAS'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+            <ui:GetValue.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="01e2d1a8184094e18c8d85946d1983df" Selector="&lt;html url='https://www.amitaisystem.com/Amitai/Views/Common/Login.aspx?*' /&gt;" WaitForReady="INTERACTIVE" />
+            </ui:GetValue.Target>
+            <ui:GetValue.Value>
+              <OutArgument x:TypeArguments="ui:GenericValue">[canvas]</OutArgument>
+            </ui:GetValue.Value>
+          </ui:GetValue>
+          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="314,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[canvas.ToString]" />
+          <Flowchart sap:VirtualizedContainerService.HintSize="314,51" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <av:Point x:Key="ShapeLocation">330,2.5</av:Point>
+                <av:Size x:Key="ShapeSize">60,75</av:Size>
+                <av:PointCollection x:Key="ConnectorLocation">360,77.5 360,107.5 360.141666666667,107.5 360.141666666667,117.5</av:PointCollection>
+                <x:Double x:Key="Width">630</x:Double>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Flowchart.StartNode>
+              <x:Reference>__ReferenceID5</x:Reference>
+            </Flowchart.StartNode>
+            <FlowDecision x:Name="__ReferenceID3" Condition="[canvas.ToString.ToLower.Contains(&quot;invalid password&quot;)]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <av:Point x:Key="ShapeLocation">260.5,256.5</av:Point>
+                  <av:Size x:Key="ShapeSize">79,87</av:Size>
+                  <av:PointCollection x:Key="TrueConnector">260.5,300 140,300 140,334.02</av:PointCollection>
+                  <av:PointCollection x:Key="FalseConnector">339.5,300 429,300 429,346.5</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <FlowDecision.True>
+                <FlowStep x:Name="__ReferenceID0">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">40,334.02</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;contrasenia invalida&quot;]" TopMost="True">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:MessageBox>
+                </FlowStep>
+              </FlowDecision.True>
+              <FlowDecision.False>
+                <FlowDecision x:Name="__ReferenceID1" Condition="[canvas.ToString.ToLower.Contains(&quot;se encuentra activa,&quot;)]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <av:Point x:Key="ShapeLocation">389.5,346.5</av:Point>
+                      <av:Size x:Key="ShapeSize">79,87</av:Size>
+                      <av:PointCollection x:Key="TrueConnector">389.5,390 310,390 310,454.02</av:PointCollection>
+                      <av:PointCollection x:Key="FalseConnector">468.5,390 530,390 530,454.5</av:PointCollection>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <FlowDecision.True>
+                    <FlowStep x:Name="__ReferenceID2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">210,454.02</av:Point>
+                          <av:Size x:Key="ShapeSize">200,51</av:Size>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;Sesion Activa&quot;]" TopMost="True">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:MessageBox>
+                    </FlowStep>
+                  </FlowDecision.True>
+                  <FlowDecision.False>
+                    <FlowStep x:Name="__ReferenceID4">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">430,454.5</av:Point>
+                          <av:Size x:Key="ShapeSize">200,51</av:Size>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="314,59" sap2010:WorkflowViewState.IdRef="MessageBox_5" Text="[&quot;Cuenta Bloqueada&quot;]" TopMost="True">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:MessageBox>
+                    </FlowStep>
+                  </FlowDecision.False>
+                </FlowDecision>
+              </FlowDecision.False>
+            </FlowDecision>
+            <x:Reference>__ReferenceID0</x:Reference>
+            <x:Reference>__ReferenceID1</x:Reference>
+            <x:Reference>__ReferenceID2</x:Reference>
+            <FlowDecision x:Name="__ReferenceID5" Condition="[canvas.ToString.ToLower.Contains(&quot;ups&quot;)]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3" True="{x:Reference __ReferenceID3}">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <av:Point x:Key="ShapeLocation">320.641666666667,117.5</av:Point>
+                  <av:Size x:Key="ShapeSize">79,87</av:Size>
+                  <av:PointCollection x:Key="TrueConnector">320.641666666667,161 300,161 300,256.5</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </FlowDecision>
+            <x:Reference>__ReferenceID4</x:Reference>
+          </Flowchart>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <Sequence DisplayName="Check Login Page" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Int32" Name="CounterLogin" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Int32">[CounterLogin]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32">0</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Boolean">[LogoutSuccessful]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+        </Assign.Value>
+      </Assign>
+      <While sap:VirtualizedContainerService.HintSize="242,51" sap2010:WorkflowViewState.IdRef="While_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <While.Condition>[CounterLogin&lt;500 AND LogoutSuccessful = FALSE]</While.Condition>
+        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,741" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="ui:GenericValue" Default="[&quot;&quot;]" Name="AddressDisplay" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Delay DisplayName="Delay 1s" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="464,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'AddressDisplay Control'" sap:VirtualizedContainerService.HintSize="464,106" sap2010:WorkflowViewState.IdRef="GetValue_2">
+            <ui:GetValue.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="fd2dd710d8cdb358be28069dd5baccde" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='https://www.amitaisystem.com/*' /&gt;&lt;wnd cls='Address Band Root' title='Barra de direcciones' /&gt;&lt;wnd cls='AddressDisplay Control' /&gt;" WaitForReady="INTERACTIVE" />
+            </ui:GetValue.Target>
+            <ui:GetValue.Value>
+              <OutArgument x:TypeArguments="ui:GenericValue">[AddressDisplay]</OutArgument>
+            </ui:GetValue.Value>
+          </ui:GetValue>
+          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="464,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[AddressDisplay]" />
+          <If Condition="[AddressDisplay.ToString.Contains(&quot;www.amitaisystem.com/Amitai/Views/Common/Login.aspx&quot;)]" DisplayName="If AddresDisplay = LOGIN" sap:VirtualizedContainerService.HintSize="464,208" sap2010:WorkflowViewState.IdRef="If_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[LogoutSuccessful]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+          </If>
+          <Assign DisplayName="CounterLogin++" sap:VirtualizedContainerService.HintSize="464,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[CounterLogin]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">[CounterLogin+1]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </While>
+      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="242,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[LogoutSuccessful.ToString]" />
+    </Sequence>
+  </Sequence>
+</Activity>

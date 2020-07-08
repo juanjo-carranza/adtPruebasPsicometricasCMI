@@ -1,0 +1,301 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="ADT_PruebaPsicometrica_02_1_Check_PartialDocument"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_PathTempFolder" Type="InArgument(x:String)" />
+    <x:Property Name="out_PathDownloadedFile" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>ADT_PruebaPsicometrica_02_1_Check_PartialDocument_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ADT_PruebaPsicometrica_02.1_Check_PartialDocument" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="s:String[]" Name="TempDescargasArray" />
+      <Variable x:TypeArguments="x:Boolean" Name="partialDocument" />
+    </Sequence.Variables>
+    <Assign DisplayName="set descargasArray" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="s:String[]">[TempDescargasArray]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(in_PathTempFolder)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign>
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_PathDownloadedFile]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">
+          <Literal x:TypeArguments="x:String" Value="" />
+        </InArgument>
+      </Assign.Value>
+      <sap2010:WorkflowViewState.IdRef>Assign_89</sap2010:WorkflowViewState.IdRef>
+    </Assign>
+    <Flowchart DisplayName="Flowchart -&gt; Check Partial Document (Waiting the download)" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+      <Flowchart.StartNode>
+        <FlowDecision x:Name="__ReferenceID0" Condition="[Not TempDescargasArray Is Nothing]" DisplayName="Null?" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+          <FlowDecision.True>
+            <FlowDecision x:Name="__ReferenceID1" Condition="[TempDescargasArray.Count &gt; 0]" DisplayName="Array.Count&gt;0" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+              <FlowDecision.True>
+                <FlowStep x:Name="__ReferenceID2" sap2010:WorkflowViewState.IdRef="FlowStep_2">
+                  <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Int32" Name="x" />
+                      <Variable x:TypeArguments="x:String" Name="TemporalPathConstancia" />
+                    </Sequence.Variables>
+                    <Assign DisplayName="set TemporalPathConstancia" sap2010:WorkflowViewState.IdRef="Assign_81">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[TemporalPathConstancia]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[TempDescargasArray(0).ToString]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <If Condition="[TemporalPathConstancia.Contains(&quot;partial&quot;)]" DisplayName="If temporalConstancia is Partial" sap2010:WorkflowViewState.IdRef="If_18">
+                      <If.Then>
+                        <Assign sap2010:WorkflowViewState.IdRef="Assign_82">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[partialDocument]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </If.Then>
+                    </If>
+                    <Assign DisplayName="Assign x = 0" sap2010:WorkflowViewState.IdRef="Assign_83">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Int32">[x]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <While DisplayName="While partialDocument is TRUE" sap2010:WorkflowViewState.IdRef="While_5" Condition="[partialDocument AND x&lt;3000]">
+                      <Sequence DisplayName="Body While" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                        <Delay DisplayName="Delay 1s" Duration="00:00:01" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                        <Assign DisplayName="set descargasArray" sap2010:WorkflowViewState.IdRef="Assign_84">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="s:String[]">[TempDescargasArray]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(in_PathTempFolder)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign DisplayName="set TemporalPathConstancia" sap2010:WorkflowViewState.IdRef="Assign_85">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[TemporalPathConstancia]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[TempDescargasArray(0).ToString]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <If Condition="[temporalPathConstancia.Contains(&quot;partial&quot;)]" DisplayName="If temporalConstancia is Partial" sap2010:WorkflowViewState.IdRef="If_19">
+                          <If.Else>
+                            <Assign sap2010:WorkflowViewState.IdRef="Assign_86">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Boolean">[partialDocument]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Else>
+                        </If>
+                        <Assign sap2010:WorkflowViewState.IdRef="Assign_87">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[x]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">[x+1]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </While>
+                    <Assign sap2010:WorkflowViewState.IdRef="Assign_88">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_PathDownloadedFile]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[TempDescargasArray(0).ToString]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </FlowStep>
+              </FlowDecision.True>
+            </FlowDecision>
+          </FlowDecision.True>
+        </FlowDecision>
+      </Flowchart.StartNode>
+      <x:Reference>__ReferenceID0</x:Reference>
+      <x:Reference>__ReferenceID1</x:Reference>
+      <x:Reference>__ReferenceID2</x:Reference>
+    </Flowchart>
+    <sads:DebugSymbol.Symbol>d4MBQzpcQXV0b21hdHlcQURUX1BSVUVCQV9QU0lDT01FVFJJQ0FcQURUX1BSVUVCQV9QU0lDT01FVFJJQ0FfRU5WSU9cQXVyYVBvcnRhbFxBRFRfUHJ1ZWJhUHNpY29tZXRyaWNhXzAyLjFfQ2hlY2tfUGFydGlhbERvY3VtZW50LnhhbWwsSgPHAQ4CAQFPBVYOAgE8VwVhDgIBOGIFxQERAgECVDJUWQIBP1EzUUcCAT1dC106AgE7WTFZSQIBOWQ5ZF4CATZmPWZgAgE1aRO7AR4CAQNuFXUeAgEwdhWBARoCASmCARWJAR4CASWKARWyAR0CAQmzARW6AR4CAQRzQHNgAgEzcEFwWQIBMXYjdlsCASp4GX8iAgEshwE/hwFAAgEohAFAhAFDAgEmiwEXsQEiAgENigF8igGdAQIBCrgBQLgBYAIBB7UBQbUBWQIBBX1FfUkCAS96RnpXAgEtjAEZjAF3AgEjjQEZlAEiAgEflQEZnAEiAgEanQEZqAEeAgETqQEZsAEiAgEOjAFAjAFKAgEkkgFGkgFtAgEijwFHjwFbAgEgmgFEmgFkAgEdlwFFlwFdAgEbnQEnnQFfAgEUnwEdpgEmAgEWrgFDrgFIAgERqwFEqwFHAgEPpAFJpAFOAgEZoQFKoQFbAgEX</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="614,60" />
+      <sap2010:ViewStateData Id="Assign_89" sap:VirtualizedContainerService.HintSize="614,60" />
+      <sap2010:ViewStateData Id="Assign_81" sap:VirtualizedContainerService.HintSize="464,60" />
+      <sap2010:ViewStateData Id="Assign_82" sap:VirtualizedContainerService.HintSize="242,60" />
+      <sap2010:ViewStateData Id="If_18" sap:VirtualizedContainerService.HintSize="464,208">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_83" sap:VirtualizedContainerService.HintSize="464,60" />
+      <sap2010:ViewStateData Id="Delay_4" sap:VirtualizedContainerService.HintSize="464,22" />
+      <sap2010:ViewStateData Id="Assign_84" sap:VirtualizedContainerService.HintSize="464,60" />
+      <sap2010:ViewStateData Id="Assign_85" sap:VirtualizedContainerService.HintSize="464,60" />
+      <sap2010:ViewStateData Id="Assign_86" sap:VirtualizedContainerService.HintSize="242,60" />
+      <sap2010:ViewStateData Id="If_19" sap:VirtualizedContainerService.HintSize="464,208">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_87" sap:VirtualizedContainerService.HintSize="464,60" />
+      <sap2010:ViewStateData Id="Sequence_33" sap:VirtualizedContainerService.HintSize="486,694">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="While_5" sap:VirtualizedContainerService.HintSize="464,51">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_88" sap:VirtualizedContainerService.HintSize="464,60" />
+      <sap2010:ViewStateData Id="Sequence_45" sap:VirtualizedContainerService.HintSize="200,51">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">0,374.5</av:Point>
+            <av:Size x:Key="ShapeSize">200,51</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowDecision_2" sap:VirtualizedContainerService.HintSize="84,87">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <av:Point x:Key="ShapeLocation">138,266.5</av:Point>
+            <av:Size x:Key="ShapeSize">84,87</av:Size>
+            <av:PointCollection x:Key="TrueConnector">138,310 100,310 100,374.5</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowDecision_1" sap:VirtualizedContainerService.HintSize="70,87">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <av:Point x:Key="ShapeLocation">260.641666666667,127.5</av:Point>
+            <av:Size x:Key="ShapeSize">70,87</av:Size>
+            <av:PointCollection x:Key="TrueConnector">260.641666666667,171 180,171 180,266.5</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Flowchart_1" sap:VirtualizedContainerService.HintSize="614,636">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+            <av:Size x:Key="ShapeSize">60,75</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 295.641666666667,107.5 295.641666666667,127.5</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="636,960">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ADT_PruebaPsicometrica_02_1_Check_PartialDocument_1" sap:VirtualizedContainerService.HintSize="676,1040" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

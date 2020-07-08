@@ -1,0 +1,312 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="ADT_Prueba_Psicometrica_03_Generate_Registros"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Data;assembly=System.Data"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_PathDownloadedFile" Type="InArgument(x:String)" />
+    <x:Property Name="in_PathRegistrosFile" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>ADT_Prueba_Psicometrica_03_Generate_Registros_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ADT_Prueba_Psicometrica_03_Generate_Registros" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="DtRegistros" />
+      <Variable x:TypeArguments="x:String" Name="Str_IDRegistros">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_RegistrosEnvio" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DtRegistrosPortal" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_RegistrosNuevos" />
+      <Variable x:TypeArguments="x:Int32" Name="InitRow" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[new System.Data.DataTable]" Name="DtRegistrosNuevos" />
+    </Sequence.Variables>
+    <ui:ReadRange AddHeaders="True" DataTable="[DtRegistros]" DisplayName="Read range &quot;Registros&quot;" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Registro" WorkbookPath="[in_PathRegistrosFile]">
+      <ui:ReadRange.Range>
+        <InArgument x:TypeArguments="x:String">
+          <Literal x:TypeArguments="x:String" Value="" />
+        </InArgument>
+      </ui:ReadRange.Range>
+    </ui:ReadRange>
+    <Assign DisplayName="set DataRow Registros" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataRow[]">[DR_RegistrosEnvio]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataRow[]" xml:space="preserve">[DtRegistros.Select("convert(["+DtRegistros.Columns(11).ColumnName+"],'System.String') = 'X' OR "+ "convert(["+DtRegistros.Columns(12).ColumnName+"],'System.String') = 'X' OR " + "convert(["+DtRegistros.Columns(13).ColumnName+"],'System.String') = 'X' OR " +  "convert(["+DtRegistros.Columns(11).ColumnName+"],'System.String') = '0' OR " + "convert(["+DtRegistros.Columns(12).ColumnName+"],'System.String') = '0' OR " + "convert(["+DtRegistros.Columns(13).ColumnName+"],'System.String') = '0'")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Initialize Str_IDRegistros" sap2010:WorkflowViewState.IdRef="Assign_18">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[Str_IDRegistros]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">
+          <Literal x:TypeArguments="x:String" Value="" />
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Obtiene una lista de ID Registros de la siguiente manera = 321321,133221,321321," DisplayName="For each in Data Row" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[DR_RegistrosEnvio]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Assign sap2010:WorkflowViewState.IdRef="Assign_3">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Str_IDRegistros]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[Str_IDRegistros+ "'"+item(0).ToString+"'"+","]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <If Condition="[Str_IDRegistros.Length&gt;0]" DisplayName="If Str_IDRegistros.Length &gt;0" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Assign sap2010:Annotation.AnnotationText="Despues de obtener el string con la siguiente lista: 323,3232,3232, eliminamos el ultimo caracter(coma) &quot;,&quot;" DisplayName="Remove last &quot;,&quot; ID_Registros" sap2010:WorkflowViewState.IdRef="Assign_4">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[Str_IDRegistros]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[Str_IDRegistros.Substring(0,Str_IDRegistros.Length-1)]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Then>
+    </If>
+    <ui:ReadRange AddHeaders="True" DataTable="[DtRegistrosPortal]" DisplayName="Read range -&gt; &quot;DownloadedFile&quot;" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="CSI - ADT - Envío Pruebas Psico" WorkbookPath="[in_PathDownloadedFile]">
+      <ui:ReadRange.Range>
+        <InArgument x:TypeArguments="x:String">
+          <Literal x:TypeArguments="x:String" Value="" />
+        </InArgument>
+      </ui:ReadRange.Range>
+    </ui:ReadRange>
+    <If Condition="[Str_IDRegistros.Count&gt;0]" DisplayName="If RegistrosFile != Empty" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Assign sap2010:Annotation.AnnotationText="De los registros que descargamos obtenemos los registros que no se encuentran en el archivo local de registros" DisplayName="Then-&gt;set Data Row &quot;Registros Nuevos&quot;" sap2010:WorkflowViewState.IdRef="Assign_6">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_RegistrosNuevos]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DtRegistrosPortal.Select("convert(["+DtRegistros.Columns(0).ColumnName+"],'System.String') NOT IN("+Str_IDRegistros+") AND ( "+"[" +DtRegistros.Columns(11).ColumnName+"] = 'X' OR " + "[" +DtRegistros.Columns(12).ColumnName+"] = 'X' OR "+ "[" +DtRegistros.Columns(13).ColumnName+"] = 'X' " + " ) ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Then>
+      <If.Else>
+        <Assign sap2010:Annotation.AnnotationText="De los registros que descargamos obtenemos los registros que no se encuentran en el archivo local de registros" DisplayName="set Data Row &quot;Registros Nuevos&quot;" sap2010:WorkflowViewState.IdRef="Assign_20">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_RegistrosNuevos]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]" xml:space="preserve">[DtRegistrosPortal.Select("[" +DtRegistros.Columns(11).ColumnName+"] = 'X' OR " + "[" +DtRegistros.Columns(12).ColumnName+"] = 'X'  OR "+ "[" +DtRegistros.Columns(13).ColumnName+"] = 'X' " )]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Else>
+    </If>
+    <ui:BuildDataTable DataTable="[DtRegistrosNuevos]" DisplayName="Build Data Table -&gt; DtRegistrosNuevos" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;ID_x0020_Registro&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Reclutador&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ID_x0020_Reclutador&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Email_x0020_Reclutador&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Nombre&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Apellido&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Email&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Genero&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Pais&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Nacionalidad&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Idioma&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Enviar_x0020_PCA&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Enviar_x0020_MIL&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Enviar_x0020_AMITAI&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Puesto&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Status_x0020_PCA&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Status_x0020_MIL&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Status_x0020_AMITAI&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ID_x0020_PCA&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ID_x0020_MIL&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ID_x0020_Amitai&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Llenamos el Data Table Registros Nuevos para escribirlos despues en el archivo de registros" DisplayName="For each in DR_RegistrosNuevos" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[DR_RegistrosNuevos]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap2010:WorkflowViewState.IdRef="Sequence_13">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="ColumnAmitai">
+                <Variable.Default>
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </Variable.Default>
+              </Variable>
+              <Variable x:TypeArguments="x:String" Name="ColumnMil">
+                <Variable.Default>
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </Variable.Default>
+              </Variable>
+              <Variable x:TypeArguments="x:String" Name="ColumnPca">
+                <Variable.Default>
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </Variable.Default>
+              </Variable>
+            </Sequence.Variables>
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{item(0).ToString, item(1).ToString,item(2).ToString, item(3).ToString, item(4).ToString, item(5).ToString,item(6).ToString, item(7).ToString, item(8).ToString, item(9).ToString,item(10).ToString, item(11).ToString, item(12).ToString, item(13).ToString,item(14).ToString, ColumnPca, ColumnMil, ColumnAmitai,&quot;&quot;,&quot;&quot;,&quot;&quot;}]" DataTable="[DtRegistrosNuevos]" DisplayName="Add data row -&gt; DtRegistrosNuevos" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <Assign sap2010:Annotation.AnnotationText="Asignamos el inicio de la Fila donde se agregaran los registros nuevos que se descargaron" DisplayName="set InitRow" sap2010:WorkflowViewState.IdRef="Assign_17">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[InitRow]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[2+DtRegistros.Rows.Count]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:WriteRange AddHeaders="False" sap2010:Annotation.AnnotationText="Se agregan los nuevos registros descargados de AuraPortal&#xA;" DataTable="[DtRegistrosNuevos]" DisplayName="Write range -&gt; DtRegistros" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="Registro" StartingCell="[&quot;A&quot;+InitRow.ToString]" WorkbookPath="[in_PathRegistrosFile]" />
+    <sads:DebugSymbol.Symbol>d6gBQzpcVXNlcnNcanVjYXJyYW5cRG9jdW1lbnRzXFVpUGF0aFx1aXBhdGhfYWR0cHJ1ZWJhc3BzaWNvbWV0cmljYXMtZGV2ZWxvcG1lbnRcQURUX1BSVUVCQV9QU0lDT01FVFJJQ0FfRU5WSU9cQXVyYVBvcnRhbFxBRFRfUHJ1ZWJhUHNpY29tZXRyaWNhXzAzX0dlbmVyYXRlX1JlZ2lzdHJvcy54YW1sN00D2AEOAgEBUgtSOgIBA1k4WVUCAQJbBWEUAgFGYgVpDgIBQmoFcw4CAT50BYYBEgIBN4cBBZIBCgIBLpMBBZkBFAIBJ5oBBa8BCgIBHbABBbABtBwCARqxAQXNARICARDOAQXVAQ4CAQzWAQXWAfICAgEEWy9bPgIBS14LXjoCAUpbpgFbsAECAUlbvgFb1gECAUdkNWRIAgFDcAtwOgIBQWwxbEICAT90kwJ0qAICAT16C4MBFgIBOIcBE4cBMgIBL4kBCZABEgIBMZMBL5MBRAIBLJYBC5YBOgIBK5MBtwGTAdgBAgEqkwHmAZMB/wECASiaAROaATECAR6cAQmjARICASOmAQmtARICAR+wASKwATcCARuxAagCsQG+AgIBGbcBC8oBFgIBEdMBL9MBSQIBD9ABMNABOQIBDdYBpwLWAckCAgEK1gGUAdYBqQECAQjWAY8C1gGZAgIBB9YB1wLWAe8CAgEFew2CARYCATmOATSOAWsCATSLATWLAUYCATKhATihAeMCAgEmngE5ngFNAgEkqAE5qAFNAgEguwETuwFCAgEUwAETwAFCAgETxQETxQFCAgESyQENyQGbBAIBFYABOIABZwIBPH05fUoCATrJAaEDyQG2AwIBF8kBOMkBlgMCARY=</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="ReadRange_1" sap:VirtualizedContainerService.HintSize="509,87" />
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="509,60" />
+      <sap2010:ViewStateData Id="Assign_18" sap:VirtualizedContainerService.HintSize="509,60" />
+      <sap2010:ViewStateData Id="Assign_3" sap:VirtualizedContainerService.HintSize="242,60" />
+      <sap2010:ViewStateData Id="Sequence_9" sap:VirtualizedContainerService.HintSize="264,184">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ForEach`1_2" sap:VirtualizedContainerService.HintSize="509,318">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_4" sap:VirtualizedContainerService.HintSize="242,60">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="509,208">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ReadRange_2" sap:VirtualizedContainerService.HintSize="509,87" />
+      <sap2010:ViewStateData Id="Assign_6" sap:VirtualizedContainerService.HintSize="242,132">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_20" sap:VirtualizedContainerService.HintSize="242,132">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_2" sap:VirtualizedContainerService.HintSize="509,280" />
+      <sap2010:ViewStateData Id="BuildDataTable_1" sap:VirtualizedContainerService.HintSize="509,59" />
+      <sap2010:ViewStateData Id="AddDataRow_1" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="Sequence_13" sap:VirtualizedContainerService.HintSize="222,146">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ForEach`1_4" sap:VirtualizedContainerService.HintSize="509,280">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_17" sap:VirtualizedContainerService.HintSize="509,60">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteRange_3" sap:VirtualizedContainerService.HintSize="509,172">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="531,2195">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ADT_Prueba_Psicometrica_03_Generate_Registros_1" sap:VirtualizedContainerService.HintSize="571,2275" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

@@ -1,0 +1,27 @@
+{
+  "name": "ADT_PRUEBA_PSICOMETRICA_ENVIO",
+  "description": "UiPath_REFrameWork CMI Envio ADT_PRUEBA_PSICOMETRICA",
+  "main": "ADT_PruebaPsicometrica_Envio_Main.xaml",
+  "dependencies": {
+    "UiPath.Mail.Activities": "[1.3.0]",
+    "UiPath.Database.Activities": "[1.2.6863.32528]",
+    "UiPath.UIAutomation.Activities": "[19.3.0]",
+    "UiPath.System.Activities": "[19.3.0]",
+    "UiPath.Excel.Activities": "[2.5.2]"
+  },
+  "schemaVersion": "3.2",
+  "studioVersion": "17.1",
+  "projectVersion": "1.0.0.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ]
+  },
+  "projectType": "Workflow",
+  "libraryOptions": {
+    "includeOriginalXaml": false,
+    "privateWorkflows": []
+  }
+}
